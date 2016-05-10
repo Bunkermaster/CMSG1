@@ -1,4 +1,10 @@
 {
     "name": "alexandrevagnair/cmsg1",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "Controller\\": "controller/",
+          "Model\\":"model/"
+        }
+    }
 }
