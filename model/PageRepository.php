@@ -17,36 +17,32 @@ class PageRepository
     }
     public function update($pdo)
     {
-        $sql = "UPDATE `page` SET  WHERE 1";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+
     }
 
     public function insert($pdo)
     {
-        $sql ="INSERT INTO `page`() VALUES ()";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+
     }
 
     public function delete($pdo)
     {
-        $sql = "DELETE FROM `page` WHERE 1";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+
     }
 
     public function select($pdo)
     {
-        $sql = "SELECT `id`, `slug`, `h1`, `body`, `title`, `img`, `span_text`, `span_class` FROM `page` WHERE 1";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+
     }
     public function selectAll($pdo)
     {
-        $sql = "SELECT `id`, `slug`, `h1`, `body`, `title`, `img`, `span_text`, `span_class` FROM `page`";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-    }
 
+    }
+    public function getSlug ($slug) {
+        $sql ="SELECT `id`, `slug`, `body`, `title` FROM `page` WHERE `slug` = :slug ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':slug', $slug,\PDO::PARAM_STR);
+        $stmt->execute();
+        var_dump($stmt->fetchObject());
+    }
 }
