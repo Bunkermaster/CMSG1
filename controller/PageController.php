@@ -38,6 +38,15 @@ class PageController
     }
     public function displayAction()
     {
+        $slug = 'teletubbies';
+        if(isset($_GET['p'])) {
+            $slug = $_GET['p'];
+        }
+//        $slug = $_GET['p'] ??  $_POST['p'] ?? 'teletubbies';
+        $page = $this->repository->getSlug($slug);
+        var_dump($page);
+        include "view/page-display.php";
+
         // Action affichage de la page en Front Office
     }
 
