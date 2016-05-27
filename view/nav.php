@@ -6,7 +6,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 <?php foreach($data as $page):?>
-                <li class="<?=isActive($page->slug, $slug)?>"><a href="?p=<?=$page->slug?>"><?=$page->title?></a></li>
+                <li class="<?=$page->page_active?>"><a href="?p=<?=$page->slug?>"><?=$page->title?></a></li>
 <?php endforeach;?>
             </ul>
         </div>

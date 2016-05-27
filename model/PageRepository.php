@@ -82,15 +82,17 @@ class PageRepository
         return $stmt->fetchObject();
     }
 
-    public function findAll()
+    public function findAll($slug)
     {
         $sql ="SELECT 
                     `slug`, 
-                    `title` 
+                    `title`,
+                    IF(`slug` = :slug, 'active', '') as page_active
                 FROM 
                     `page` 
                 ";
         $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }

@@ -84,7 +84,7 @@ class PageController
 	private function genererLaNav($slug)
 	{
 		ob_start();
-		$data = $this->repository->findAll();
+		$data = $this->repository->findAll($slug);
 		include "view/nav.php";
 		// generer la nav
 		$nav = ob_get_clean();
