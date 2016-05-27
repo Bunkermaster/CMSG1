@@ -1,5 +1,6 @@
 <?php
-require_once "../init.php";
+chdir($appRoot = dirname(__DIR__));
+require_once "init.php";
 // demarre notre application
 $page = new \Controller\PageController($pdo);
 // afficher la page demandee
