@@ -5,9 +5,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="?p=teletubbies">Teletubbies</a></li>
-                <li class="active"><a href="?p=kittens">Kittens</a></li>
-                <li><a href="?p=ironmaiden">Iron Maiden</a></li>
+<?php foreach($data as $page):?>
+                <li><a href="?p=<?=$page->slug?>"><?=$page->title?></a></li>
+<?php endforeach;?>
             </ul>
         </div>
     </div>
