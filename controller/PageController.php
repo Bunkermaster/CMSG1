@@ -76,12 +76,12 @@ class PageController
 			return;
 		}
 		// je dois avoir la nav initialisee pour que la vue la montre
-		$nav = $this->genererLaNav();
+		$nav = $this->genererLaNav($slug);
 		// j'ai des donnees, je le affiche
 		include "view/page-display.php";
 	}
 
-	private function genererLaNav()
+	private function genererLaNav($slug)
 	{
 		ob_start();
 		$data = $this->repository->findAll();
