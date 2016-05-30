@@ -57,7 +57,10 @@ class PageController
      */
     public function listeAction()
     {
-
+        // recuperer les donnees
+        $data = $this->repository->findAll();
+        // afficher les donnees
+        require "view/admin/pageList.php";
     }
 
     /**

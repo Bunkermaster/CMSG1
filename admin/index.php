@@ -4,23 +4,27 @@ require_once "init.php";
 // demarre notre application
 $page = new \Controller\PageController($pdo);
 // afficher la page demandee
-$action = 'home';
+$action = '';
 // recuperation du slug du parametre d'url si present
 if (isset($_GET['a'])) {
     $action = $_GET['a'];
 }
+//$action = $_GET['a'] ?? ''; // < en PHP 7
 switch($action){
     case 'ajouter':
         break;
+    
     case 'modifier':
         break;
+    
     case 'supprimer':
         break;
+    
     case 'details':
         break;
+    
     case 'lister':
     default:
         $page->listeAction();
         break;
 }
-$page->displayAction();

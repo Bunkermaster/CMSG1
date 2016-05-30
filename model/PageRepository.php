@@ -64,7 +64,7 @@ class PageRepository
 
     /**
      * @param $slug
-     * @return \stdClass\bool
+     * @return stdClass|bool
      */
     public function getBySlug($slug)
     {
@@ -84,11 +84,12 @@ class PageRepository
 
     public function findAll()
     {
-        $sql ="SELECT 
-                    `slug`, 
-                    `title` 
+        $sql = "SELECT 
+                    `id`,
+                    `slug`,
+                    `title`
                 FROM 
-                    `page` 
+                    `page2`
                 ";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
