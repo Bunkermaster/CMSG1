@@ -21,6 +21,7 @@ switch($action){
         break;
     
     case 'details':
+        $page->detailsAction();
         break;
     
     case 'lister':

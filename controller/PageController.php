@@ -50,6 +50,13 @@ class PageController
      */
     public function detailsAction()
     {
+        if(!isset($_GET['id'])){
+            throw new \Exception('mdr le truc');
+        }
+        // recuperation de donnees
+        $data = $this->repository->getById($_GET['id']);
+        // affichage des donnees
+        require "view/admin/pageDetails.php";
     }
 
     /**

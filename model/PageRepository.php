@@ -82,6 +82,28 @@ class PageRepository
         return $stmt->fetchObject();
     }
 
+    /**
+     * @param $id
+     * @return \stdClass|bool
+     */
+    public function getById($id)
+    {
+        $sql ="SELECT 
+                    `id`, 
+                    `slug`, 
+                    `body`, 
+                    `title` 
+                FROM 
+                    `page` 
+                WHERE 
+                    `id` = :id
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id',$id,\PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchObject();
+    }
+
     public function findAll()
     {
         $sql = "SELECT 
@@ -89,7 +111,7 @@ class PageRepository
                     `slug`,
                     `title`
                 FROM 
-                    `page2`
+                    `page`
                 ";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
